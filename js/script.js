@@ -7,8 +7,8 @@ checkButton.addEventListener("click", function(){
     if(name == "양수회"){
         result.innerText = "안녕, 수회야";
     } else if(name = "정재헌"){
-        result.innerText = "내 이름"
+        result.innerText = "내 이름";
     } else{
-        result.innerText = "누구세요?"
+        result.innerText = "누구세요?";
     }
 });
