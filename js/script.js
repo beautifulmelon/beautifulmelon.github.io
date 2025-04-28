@@ -11,4 +11,5 @@ checkButton.addEventListener("click", function(){
     } else{
         result.innerText = "누구세요?";
     }
+    
 });
