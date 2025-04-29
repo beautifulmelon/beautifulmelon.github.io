@@ -13,3 +13,13 @@ checkButton.addEventListener("click", function(){
     }
     
 });
+nameInput.addEventListener("keydown", function(event){
+    if(event.key === "Enter")
+    {
+        checkButton.click();
+    }
+    else if(event.key === "Escape")
+    {
+        nameInput.value = "null";
+    }
+});
