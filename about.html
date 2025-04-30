@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>about_jaeheon</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <header>
         <h1>About me!</h1>
@@ -17,7 +19,8 @@
     </header>
 
     <main>
-        <img src="img/seatedkirby.jpg" alt="kirby_simple" width="200" height="200" style="border-radius: 50%;">
+        <img id="profile" src="img/seatedkirby.jpg" alt="kirby_simple" width="200" height="200"
+            style="border-radius: 50%;">
         <h2>취미</h2>
         <p>코딩, 게임 만들기</p>
     </main>
@@ -25,5 +28,18 @@
     <footer>
         <p>&copy; 2025 started</p>
     </footer>
+
+    <script>
+        const profile = document.getElementById("profile");
+        profile.addEventListener("mouseenter", () => {
+            profile.src = "img/hokirby.jpg";
+        });
+        profile.addEventListener("mouseleave", () => {
+            profile.src = "img/seatedkirby.jpg";
+        });
+        
+
+    </script>
 </body>
+
 </html>
