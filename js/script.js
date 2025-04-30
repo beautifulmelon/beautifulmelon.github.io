@@ -20,6 +20,6 @@ nameInput.addEventListener("keydown", function(event){
     }
     else if(event.key === "Escape")
     {
-        nameInput.value = "null";
+        nameInput.value = "";
     }
 });

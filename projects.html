@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <header>
         <h1>About me!</h1>
@@ -18,14 +20,42 @@
 
     <main>
         <h2>my projects</h2>
-        <ul>
-            <li><a href="projects/whatisyourname.html">이름이 뭐에요?</a></li>
-            
-        </ul>
+
+        <div class="project">
+            이름 맞추기
+            <a href="projects/whatisyourname.html">이름이 뭐에요? <button>체험하기</button><br><img src="img/seatedkirby.jpg" alt="" width="500"></a>
+        </div>
+        <div class="project">
+            숫자 맞추기 게임
+            <a href="">comingsoon<button>체험하기</button><br><img src="img/hokirby.jpg" alt="" width="500"></a>
+        </div>
+        <div class="project">
+            TODO 리스트
+            <a href="">comingsoon<button>체험하기</button><br><img src="img/seatedkirby.jpg" alt="" width="500"></a>
+        </div>
+        <div class="project">
+            랜덤 뽑기 게임
+            <a href="">comingsoon<button>체험하기</button><br><img src="img/hokirby.jpg" alt="" width="500"></a>
+        </div>
+
         <p>앞으로 추가될 예정입니다~</p>
     </main>
     <footer>
         <p>&copy; 2025 started</p>
     </footer>
+
+    <script>
+        const projects = document.querySelectorAll('.project');
+
+        window.addEventListener('scroll', () => {
+            projects.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 500) {
+                    el.classList.add('show');
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>
