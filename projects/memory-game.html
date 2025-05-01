@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>memory-game!!</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <h1>숫자 기억하기 게임</h1>
+    <h1 id = 'point'>너의 점수 : 0</h1>
+    <h2>아래 숫자를 기억하고 입력하세요</h2>
+    <button id="startbt">START</button>
+    <div id="numberDisplay"></div>
+    <div id="inputArea">
+        숫자를 입력해주세요 :
+        <input type="number" id="userAnswer">
+        <button id="submitbt">제출</button>
+    </div>
+
+    <p id="result"></p>
+
+    <script>
+        const startbutton = document.getElementById("startbt");
+        const inputarea = document.getElementById("inputArea");
+        const useranswer = document.getElementById("userAnswer");
+        const submitbutton = document.getElementById("submitbt");
+        const result = document.getElementById("result");
+        const numberDisplay = document.getElementById('numberDisplay');
+        const point = document.getElementById("point");
+        let number = [];
+        let correctnumber = 0;
+        let score = 0;
+        inputarea.style.display = 'none'
+        startbutton.addEventListener("click", () => {
+            number = [];
+
+            result.textContent = "";
+            inputarea.style.display = "none";
+            useranswer.value = '';
+            numberDisplay.textContent = "숫자는 여기에 나옵니다."
+            numberDisplay.style.display = 'block'
+
+            let count = 0;
+            const interval = setInterval(() => {
+                const randomNum = Math.floor(Math.random() * 100);
+                number.push(randomNum);
+                numberDisplay.textContent = randomNum;
+                count++;
+
+                if (count === 4) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        correctnumber = Math.floor(Math.random() * 3) + 1;
+                        numberDisplay.textContent = `이제 ${correctnumber}번째 숫자를 입력하세요!`;
+                        inputarea.style.display = 'block'
+                    }, 1000);
+                }
+            }, 1000);
+
+        });
+
+        submitbutton.addEventListener('click', () => {
+            const answer = Number(useranswer.value);
+            if(answer === number[correctnumber -1]){
+                result.textContent = '정답~~~~~'
+                score ++;
+                point.textContent = `너의 점수 : ${score}`;
+            }
+            else{
+                result.textContent = `오답~!!!!! 정답은 ${number[correctnumber -1]} 였어~~`
+            }
+
+            inputarea.style.display = 'none'
+        });
+
+    </script>
+</body>
+
+</html>
